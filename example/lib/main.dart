@@ -116,7 +116,7 @@ class DonIconsGalleryHomeState extends State<DonIconsGalleryHome> {
   AppBar _searchBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: Icon(DonIcons.arrowLeft),
+        icon: Icon(DonIcons.arrow_left),
         onPressed: () {
           setState(
             () {
