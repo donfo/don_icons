@@ -11,11 +11,13 @@ void main(List<String> arguments) {
   Map<String, dynamic> iconfont = json.decode(content);
   List<dynamic> icons = iconfont['glyphs'];
   Map<String, String> iconDefinitions = {};
+  List<String> iconsDon = [];
 
   icons.forEach((icon) {
-    var iconName = icon['font_class'];
+    var iconName = icon['font_class'].replaceAll('-', '_');
     var unicode = icon['unicode'];
     iconDefinitions[iconName] = generateIconDefinition(iconName, unicode);
+    iconsDon.add('\'$iconName\': DonIcons.$iconName,');
   });
 
   List<String> generatedOutput = [
@@ -41,11 +43,19 @@ void main(List<String> arguments) {
 
   generatedOutput.add('}');
 
+  generatedOutput.addAll([
+    '',
+    'const Map<String, IconData> DonIconsMap = <String, IconData>{',
+  ]);
+
+  generatedOutput.addAll(iconsDon);
+
+  generatedOutput.add('};');
+
   File output = File('lib/don_icons.dart');
   output.writeAsStringSync(generatedOutput.join('\n'));
 }
 
 String generateIconDefinition(String iconName, String unicode) {
-  iconName = iconName.replaceAll('-', '_');
   return 'static const IconData $iconName = const IconDataDon(0x$unicode);';
 }
