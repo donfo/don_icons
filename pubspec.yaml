@@ -1,7 +1,7 @@
 name: don_icons
 description: A new flutter plugin project.
 maintainer: donfo
-version: 0.0.4
+version: 0.0.5+1
 homepage: https://github.com/donfo/don_icons
 
 environment:

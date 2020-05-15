@@ -12,11 +12,11 @@ else
 echo "Updating icons to newest version."
 pushd lib/fonts/
 
-curl -L -o iconfont.ttf "https://at.alicdn.com/t/font_1818548_mxi10nekbu.ttf"
+curl -L -o iconfont.ttf "https://at.alicdn.com/t/font_1818548_098ghuhucyec.ttf"
 
 popd
 
-curl -o /tmp/icons.json "https://at.alicdn.com/t/font_1818548_mxi10nekbu.json"
+curl -o /tmp/icons.json "https://at.alicdn.com/t/font_1818548_098ghuhucyec.json"
 
 dart ./tool/generate_font.dart /tmp/icons.json
 dart ./tool/generate_example.dart /tmp/icons.json
