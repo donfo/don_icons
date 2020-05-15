@@ -1,7 +1,7 @@
 name: don_icons
 description: A new flutter plugin project.
+maintainer: donfo
 version: 0.0.1
-author: donfo <aspzjfa@foxmail.com>
 homepage: https://github.com/donfo/don_icons
 
 environment:
@@ -23,6 +23,7 @@ flutter:
     - family: Iconfont
       fonts:
         - asset: lib/fonts/iconfont.ttf
+          weight: 400
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages

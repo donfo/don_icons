@@ -35,6 +35,12 @@ void main(List<String> arguments) {
     'library don_icons;',
     '',
     "import 'package:flutter/widgets.dart';",
+    '',
+    '''
+    class IconDataDon extends IconData {
+      const IconDataDon(int codePoint) : super(codePoint, fontFamily: 'Iconfont', fontPackage: 'don_icons');
+    }
+    ''',
   ];
 
   generatedOutput.addAll([
@@ -54,5 +60,5 @@ void main(List<String> arguments) {
 
 String generateIconDefinition(String iconName, String unicode) {
   iconName = camelCaseFirstLower(iconName);
-  return 'static const IconData $iconName = const IconData(0x$unicode, fontFamily: \'Iconfont\');';
+  return 'static const IconData $iconName = const IconDataDon(0x$unicode);';
 }

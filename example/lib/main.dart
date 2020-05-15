@@ -33,13 +33,8 @@ class DonIconsGalleryHomeState extends State<DonIconsGalleryHome> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredIcons = icons
-        .where((icon) =>
-            _searchTerm.isEmpty ||
-            icon.title.toLowerCase().contains(_searchTerm.toLowerCase()))
-        .toList();
+    final filteredIcons = icons.where((icon) => _searchTerm.isEmpty || icon.title.toLowerCase().contains(_searchTerm.toLowerCase())).toList();
     final orientation = MediaQuery.of(context).orientation;
-
     return Scaffold(
       appBar: _isSearching ? _searchBar(context) : _titleBar(),
       body: GridView.builder(
@@ -49,7 +44,6 @@ class DonIconsGalleryHomeState extends State<DonIconsGalleryHome> {
         ),
         itemBuilder: (context, index) {
           final icon = filteredIcons[index];
-
           return InkWell(
             onTap: () {
               Navigator.push(
@@ -94,26 +88,27 @@ class DonIconsGalleryHomeState extends State<DonIconsGalleryHome> {
 
   AppBar _titleBar() {
     return AppBar(
-      title: Text("Font Awesome Flutter Gallery"),
+      title: Text("DonIcons Gallery"),
       actions: [
         IconButton(
-            icon: Icon(DonIcons.search),
-            onPressed: () {
-              ModalRoute.of(context).addLocalHistoryEntry(
-                LocalHistoryEntry(
-                  onRemove: () {
-                    setState(() {
-                      _searchTerm = "";
-                      _isSearching = false;
-                    });
-                  },
-                ),
-              );
+          icon: Icon(DonIcons.search),
+          onPressed: () {
+            ModalRoute.of(context).addLocalHistoryEntry(
+              LocalHistoryEntry(
+                onRemove: () {
+                  setState(() {
+                    _searchTerm = "";
+                    _isSearching = false;
+                  });
+                },
+              ),
+            );
 
-              setState(() {
-                _isSearching = true;
-              });
-            })
+            setState(() {
+              _isSearching = true;
+            });
+          },
+        ),
       ],
     );
   }
