@@ -6,7 +6,6 @@ homepage: https://github.com/donfo/don_icons
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.10.0"
 
 dependencies:
   flutter:
